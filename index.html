@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>STRYDE — Premium Footwear</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f0e8;
+      --cream: #ede8dc;
+      --accent: #c8412a;
+      --gray: #9a9490;
+      --card-bg: #1a1a1a;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 60px;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      background: var(--black);
+      z-index: 100;
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 4px;
+      color: var(--white);
+      text-decoration: none;
+    }
+    nav a {
+      color: var(--gray);
+      text-decoration: none;
+      margin-left: 32px;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--white); }
+
+    /* HERO PRODUCT */
+    .product-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 90vh;
+    }
+
+    .product-image-wrap {
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-image-wrap::before {
+      content: 'STRYDE';
+      position: absolute;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14rem;
+      color: rgba(0,0,0,0.06);
+      letter-spacing: 10px;
+      pointer-events: none;
+    }
+    .product-image-wrap img {
+      width: 100%;
+      max-width: 480px;
+      transform: rotate(-8deg);
+      filter: drop-shadow(0 30px 60px rgba(0,0,0,0.35));
+      transition: transform 0.4s ease;
+    }
+    .product-image-wrap img:hover { transform: rotate(-4deg) scale(1.03); }
+
+    .product-info {
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .product-tag {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .product-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      line-height: 0.95;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .product-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 380px;
+      margin-bottom: 40px;
+    }
+    .product-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--white);
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .size-label {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+    .sizes {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .size-btn {
+      width: 48px;
+      height: 48px;
+      border: 1px solid #333;
+      background: none;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .size-btn:hover, .size-btn.active {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+    }
+    .btn-cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      padding: 18px 40px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      max-width: 280px;
+    }
+    .btn-cart:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    /* DIVIDER */
+    .section-divider {
+      text-align: center;
+      padding: 80px 60px 40px;
+    }
+    .section-divider h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      letter-spacing: 4px;
+      color: var(--white);
+    }
+    .divider-line {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 16px auto 0;
+    }
+
+    /* REVIEWS */
+    .reviews-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 60px 80px;
+    }
+
+    .reviews-summary {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      padding: 32px 0;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      margin-bottom: 48px;
+    }
+    .big-rating {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stars { color: #f5a623; font-size: 1.3rem; letter-spacing: 3px; }
+    .total-reviews { color: var(--gray); font-size: 0.85rem; margin-top: 4px; }
+
+    .review-list { display: flex; flex-direction: column; gap: 24px; margin-bottom: 60px; }
+
+    .review-card {
+      background: var(--card-bg);
+      border: 1px solid #2a2a2a;
+      padding: 28px 32px;
+      animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .reviewer-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--white);
+    }
+    .review-date {
+      font-size: 0.75rem;
+      color: var(--gray);
+    }
+    .review-stars { color: #f5a623; font-size: 0.9rem; margin-bottom: 10px; }
+    .review-text { color: #bbb; font-size: 0.9rem; line-height: 1.65; }
+    .verified {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #5aad7f;
+      margin-top: 12px;
+    }
+
+    /* REVIEW FORM */
+    .review-form-wrap {
+      border: 1px solid #2a2a2a;
+      padding: 40px;
+      background: var(--card-bg);
+    }
+    .form-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      margin-bottom: 28px;
+      color: var(--white);
+    }
+    .form-row { margin-bottom: 20px; }
+    .form-row label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    .form-row input,
+    .form-row textarea {
+      width: 100%;
+      background: #111;
+      border: 1px solid #333;
+      color: var(--white);
+      padding: 14px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-row input:focus,
+    .form-row textarea:focus { border-color: var(--accent); }
+    .form-row textarea { resize: vertical; min-height: 110px; }
+
+    .star-picker { display: flex; gap: 8px; }
+    .star-picker span {
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #444;
+      transition: color 0.15s, transform 0.15s;
+    }
+    .star-picker span:hover,
+    .star-picker span.active { color: #f5a623; transform: scale(1.15); }
+
+    .btn-submit {
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      padding: 16px 36px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-submit:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    .success-msg {
+      display: none;
+      color: #5aad7f;
+      font-size: 0.85rem;
+      margin-top: 16px;
+      letter-spacing: 1px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #222;
+      text-align: center;
+      padding: 32px;
+      color: var(--gray);
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .product-section { grid-template-columns: 1fr; }
+      .product-info, header { padding: 32px 24px; }
+      .product-name { font-size: 3.5rem; }
+      .reviews-section { padding: 0 24px 60px; }
+      .review-form-wrap { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">Stryde</a>
+  <nav>
+    <a href="#">Shop</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#">About</a>
+  </nav>
+</header>
+
+<!-- PRODUCT SECTION -->
+<section class="product-section">
+  <div class="product-image-wrap">
+    <!-- Replace the src below with your actual shoe image URL -->
+    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop" alt="STRYDE Runner X1" />
+  </div>
+  <div class="product-info">
+    <p class="product-tag">New Drop — 2025</p>
+    <h1 class="product-name">Runner<br>X1</h1>
+    <p class="product-desc">
+      Engineered for the streets. Lightweight mesh upper, carbon-fiber reinforced sole, and a silhouette that turns heads. Built for speed, worn for style.
+    </p>
+    <div class="product-price">$189.00</div>
+    <p class="size-label">Select Size (US)</p>
+    <div class="sizes">
+      <button class="size-btn" onclick="selectSize(this)">7</button>
+      <button class="size-btn" onclick="selectSize(this)">8</button>
+      <button class="size-btn active" onclick="selectSize(this)">9</button>
+      <button class="size-btn" onclick="selectSize(this)">10</button>
+      <button class="size-btn" onclick="selectSize(this)">11</button>
+      <button class="size-btn" onclick="selectSize(this)">12</button>
+    </div>
+    <button class="btn-cart" onclick="addToCart()">
+      Add to Cart →
+    </button>
+  </div>
+</section>
+
+<!-- REVIEWS SECTION -->
+<div class="section-divider" id="reviews">
+  <h2>Customer Reviews</h2>
+  <div class="divider-line"></div>
+</div>
+
+<section class="reviews-section">
+
+  <!-- Summary Bar -->
+  <div class="reviews-summary">
+    <div class="big-rating" id="avg-rating">4.7</div>
+    <div>
+      <div class="stars" id="avg-stars">★★★★★</div>
+      <div class="total-reviews" id="review-count">Based on 3 reviews</div>
+    </div>
+  </div>
+
+  <!-- Reviews List -->
+  <div class="review-list" id="review-list">
+
+    <div class="review-card">
+      <div class="review-header">
+        <span class="reviewer-name">Marcus T.</span>
+        <span class="review-date">Feb 12, 2025</span>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">These are genuinely the most comfortable sneakers I've ever owned. Wore them on a 10-mile city walk and my feet felt great the whole time. The design is sleek — I get compliments constantly.</p>
+      <span class="verified">✔ Verified Purchase</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-header">
+        <span class="reviewer-name">Priya K.</span>
+        <span class="review-date">Jan 28, 2025</span>
+      </div>
+      <div class="review-stars">★★★★☆</div>
+      <p class="review-text">Great shoe overall. Very lightweight and the sole grip is excellent. Docking one star only because it runs slightly narrow — I'd suggest sizing up half a size if you have wide feet.</p>
+      <span class="verified">✔ Verified Purchase</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-header">
+        <span class="reviewer-name">Jordan L.</span>
+        <span class="review-date">Jan 5, 2025</span>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Bought these as a gift for my brother. He hasn't taken them off since. The quality is obvious from the moment you hold them — feels premium, not mass-produced.</p>
+      <span class="verified">✔ Verified Purchase</span>
+    </div>
+
+  </div>
+
+  <!-- Review Form -->
+  <div class="review-form-wrap">
+    <div class="form-title">Leave a Review</div>
+
+    <div class="form-row">
+      <label>Your Name</label>
+      <input type="text" id="r-name" placeholder="e.g. Alex M." />
+    </div>
+
+    <div class="form-row">
+      <label>Rating</label>
+      <div class="star-picker" id="star-picker">
+        <span onclick="setRating(1)">★</span>
+        <span onclick="setRating(2)">★</span>
+        <span onclick="setRating(3)">★</span>
+        <span onclick="setRating(4)">★</span>
+        <span onclick="setRating(5)">★</span>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label>Your Review</label>
+      <textarea id="r-text" placeholder="Tell others what you think about the Runner X1..."></textarea>
+    </div>
+
+    <button class="btn-submit" onclick="submitReview()">Post Review</button>
+    <p class="success-msg" id="success-msg">✔ Review posted! Thank you.</p>
+  </div>
+
+</section>
+
+<footer>
+  © 2025 STRYDE. All rights reserved. &nbsp;|&nbsp; Crafted for runners.
+</footer>
+
+<script>
+  // ── Size selection ──
+  function selectSize(btn) {
+    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  // ── Add to cart ──
+  function addToCart() {
+    const size = document.querySelector('.size-btn.active')?.textContent || '?';
+    alert(`Added Runner X1 (Size ${size}) to cart! 🛒`);
+  }
+
+  // ── Star rating picker ──
+  let selectedRating = 0;
+  function setRating(n) {
+    selectedRating = n;
+    const stars = document.querySelectorAll('#star-picker span');
+    stars.forEach((s, i) => {
+      s.classList.toggle('active', i < n);
+    });
+  }
+
+  // ── Submit review ──
+  function submitReview() {
+    const name = document.getElementById('r-name').value.trim();
+    const text = document.getElementById('r-text').value.trim();
+
+    if (!name) { alert('Please enter your name.'); return; }
+    if (!selectedRating) { alert('Please select a star rating.'); return; }
+    if (!text) { alert('Please write your review.'); return; }
+
+    const starsStr = '★'.repeat(selectedRating) + '☆'.repeat(5 - selectedRating);
+    const today = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+    const card = document.createElement('div');
+    card.className = 'review-card';
+    card.innerHTML = `
+      <div class="review-header">
+        <span class="reviewer-name">${name}</span>
+        <span class="review-date">${today}</span>
+      </div>
+      <div class="review-stars">${starsStr}</div>
+      <p class="review-text">${text}</p>
+      <span class="verified">✔ Verified Purchase</span>
+    `;
+
+    document.getElementById('review-list').prepend(card);
+    updateAvgRating();
+
+    // Reset form
+    document.getElementById('r-name').value = '';
+    document.getElementById('r-text').value = '';
+    setRating(0);
+    selectedRating = 0;
+
+    const msg = document.getElementById('success-msg');
+    msg.style.display = 'block';
+    setTimeout(() => msg.style.display = 'none', 3000);
+  }
+
+  // ── Recalculate average ──
+  function updateAvgRating() {
+    const cards = document.querySelectorAll('.review-card');
+    let total = 0;
+    cards.forEach(card => {
+      const stars = card.querySelector('.review-stars').textContent;
+      total += (stars.match(/★/g) || []).length;
+    });
+    const avg = (total / cards.length).toFixed(1);
+    document.getElementById('avg-rating').textContent = avg;
+    document.getElementById('review-count').textContent = `Based on ${cards.length} review${cards.length !== 1 ? 's' : ''}`;
+    const fullStars = Math.round(avg);
+    document.getElementById('avg-stars').textContent = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
+  }
+</script>
+</body>
+</html>
