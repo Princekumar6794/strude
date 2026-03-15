@@ -188,138 +188,6 @@
       margin: 16px auto 0;
     }
 
-    /* REVIEWS */
-    .reviews-section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 60px 80px;
-    }
-
-    .reviews-summary {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      padding: 32px 0;
-      border-top: 1px solid #222;
-      border-bottom: 1px solid #222;
-      margin-bottom: 48px;
-    }
-    .big-rating {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 5rem;
-      color: var(--white);
-      line-height: 1;
-    }
-    .stars { color: #f5a623; font-size: 1.3rem; letter-spacing: 3px; }
-    .total-reviews { color: var(--gray); font-size: 0.85rem; margin-top: 4px; }
-
-    .review-list { display: flex; flex-direction: column; gap: 24px; margin-bottom: 60px; }
-
-    .review-card {
-      background: var(--card-bg);
-      border: 1px solid #2a2a2a;
-      padding: 28px 32px;
-      animation: fadeIn 0.4s ease;
-    }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-
-    .review-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 12px;
-    }
-    .reviewer-name {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--white);
-    }
-    .review-date {
-      font-size: 0.75rem;
-      color: var(--gray);
-    }
-    .review-stars { color: #f5a623; font-size: 0.9rem; margin-bottom: 10px; }
-    .review-text { color: #bbb; font-size: 0.9rem; line-height: 1.65; }
-    .verified {
-      display: inline-block;
-      font-size: 0.7rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #5aad7f;
-      margin-top: 12px;
-    }
-
-    /* REVIEW FORM */
-    .review-form-wrap {
-      border: 1px solid #2a2a2a;
-      padding: 40px;
-      background: var(--card-bg);
-    }
-    .form-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 3px;
-      margin-bottom: 28px;
-      color: var(--white);
-    }
-    .form-row { margin-bottom: 20px; }
-    .form-row label {
-      display: block;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 8px;
-    }
-    .form-row input,
-    .form-row textarea {
-      width: 100%;
-      background: #111;
-      border: 1px solid #333;
-      color: var(--white);
-      padding: 14px 16px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .form-row input:focus,
-    .form-row textarea:focus { border-color: var(--accent); }
-    .form-row textarea { resize: vertical; min-height: 110px; }
-
-    .star-picker { display: flex; gap: 8px; }
-    .star-picker span {
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #444;
-      transition: color 0.15s, transform 0.15s;
-    }
-    .star-picker span:hover,
-    .star-picker span.active { color: #f5a623; transform: scale(1.15); }
-
-    .btn-submit {
-      background: var(--accent);
-      color: var(--white);
-      border: none;
-      padding: 16px 36px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      margin-top: 8px;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .btn-submit:hover { opacity: 0.85; transform: translateY(-2px); }
-
-    .success-msg {
-      display: none;
-      color: #5aad7f;
-      font-size: 0.85rem;
-      margin-top: 16px;
-      letter-spacing: 1px;
-    }
-
     /* FOOTER */
     footer {
       border-top: 1px solid #222;
@@ -334,14 +202,12 @@
       .product-section { grid-template-columns: 1fr; }
       .product-info, header { padding: 32px 24px; }
       .product-name { font-size: 3.5rem; }
-      .reviews-section { padding: 0 24px 60px; }
-      .review-form-wrap { padding: 24px; }
+      .faithox-wrapper { padding: 0 24px 60px !important; }
     }
   </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <a href="#" class="logo">Stryde</a>
   <nav>
@@ -351,11 +217,9 @@
   </nav>
 </header>
 
-<!-- PRODUCT SECTION -->
 <section class="product-section">
   <div class="product-image-wrap">
-    <!-- Replace the src below with your actual shoe image URL -->
-    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop" alt="STRYDE Runner X1" />
+    <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/308614/05/sv01/fnd/IND/fmt/png/BMW-M-Motorsport-Drift-Cat-11-Sneakers" alt="Stryde Shoe 1" />
   </div>
   <div class="product-info">
     <p class="product-tag">New Drop — 2025</p>
@@ -379,168 +243,248 @@
   </div>
 </section>
 
-<!-- REVIEWS SECTION -->
 <div class="section-divider" id="reviews">
   <h2>Customer Reviews</h2>
   <div class="divider-line"></div>
 </div>
 
-<section class="reviews-section">
-
-  <!-- Summary Bar -->
-  <div class="reviews-summary">
-    <div class="big-rating" id="avg-rating">4.7</div>
-    <div>
-      <div class="stars" id="avg-stars">★★★★★</div>
-      <div class="total-reviews" id="review-count">Based on 3 reviews</div>
-    </div>
-  </div>
-
-  <!-- Reviews List -->
-  <div class="review-list" id="review-list">
-
-    <div class="review-card">
-      <div class="review-header">
-        <span class="reviewer-name">Marcus T.</span>
-        <span class="review-date">Feb 12, 2025</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">These are genuinely the most comfortable sneakers I've ever owned. Wore them on a 10-mile city walk and my feet felt great the whole time. The design is sleek — I get compliments constantly.</p>
-      <span class="verified">✔ Verified Purchase</span>
-    </div>
-
-    <div class="review-card">
-      <div class="review-header">
-        <span class="reviewer-name">Priya K.</span>
-        <span class="review-date">Jan 28, 2025</span>
-      </div>
-      <div class="review-stars">★★★★☆</div>
-      <p class="review-text">Great shoe overall. Very lightweight and the sole grip is excellent. Docking one star only because it runs slightly narrow — I'd suggest sizing up half a size if you have wide feet.</p>
-      <span class="verified">✔ Verified Purchase</span>
-    </div>
-
-    <div class="review-card">
-      <div class="review-header">
-        <span class="reviewer-name">Jordan L.</span>
-        <span class="review-date">Jan 5, 2025</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Bought these as a gift for my brother. He hasn't taken them off since. The quality is obvious from the moment you hold them — feels premium, not mass-produced.</p>
-      <span class="verified">✔ Verified Purchase</span>
-    </div>
-
-  </div>
-
-  <!-- Review Form -->
-  <div class="review-form-wrap">
-    <div class="form-title">Leave a Review</div>
-
-    <div class="form-row">
-      <label>Your Name</label>
-      <input type="text" id="r-name" placeholder="e.g. Alex M." />
-    </div>
-
-    <div class="form-row">
-      <label>Rating</label>
-      <div class="star-picker" id="star-picker">
-        <span onclick="setRating(1)">★</span>
-        <span onclick="setRating(2)">★</span>
-        <span onclick="setRating(3)">★</span>
-        <span onclick="setRating(4)">★</span>
-        <span onclick="setRating(5)">★</span>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <label>Your Review</label>
-      <textarea id="r-text" placeholder="Tell others what you think about the Runner X1..."></textarea>
-    </div>
-
-    <button class="btn-submit" onclick="submitReview()">Post Review</button>
-    <p class="success-msg" id="success-msg">✔ Review posted! Thank you.</p>
-  </div>
-
-</section>
-
-<footer>
-  © 2025 STRYDE. All rights reserved. &nbsp;|&nbsp; Crafted for runners.
-</footer>
-
+<div class="faithox-wrapper" style="max-width: 900px; margin: 0 auto; padding: 0 60px 80px;">
+    <div id="faithox-widget-container" data-company-id="black-shoes-1"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  // ── Size selection ──
-  function selectSize(btn) {
-    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  }
+  (function() {
+    const SUPABASE_URL = 'https://fdjcvpsqossuiljuadkk.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_bLQjs0QMG8COtCALOJz7hw_M9NWKRyl';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  // ── Add to cart ──
-  function addToCart() {
-    const size = document.querySelector('.size-btn.active')?.textContent || '?';
-    alert(`Added Runner X1 (Size ${size}) to cart! 🛒`);
-  }
+    const container = document.getElementById('faithox-widget-container');
+    const companyId = container.getAttribute('data-company-id');
 
-  // ── Star rating picker ──
-  let selectedRating = 0;
-  function setRating(n) {
-    selectedRating = n;
-    const stars = document.querySelectorAll('#star-picker span');
-    stars.forEach((s, i) => {
-      s.classList.toggle('active', i < n);
-    });
-  }
+    // Inject Faithox Light Theme CSS
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
+        #faithox-widget-container { font-family: 'Inter', sans-serif !important; width: 100%; background: #f8f8f8; border-radius: 16px; padding: 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); color: #0f172a; text-align: left; }
+        .fx-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 20px; margin-bottom: 24px; }
+        .fx-title { font-size: 20px; font-weight: 800; color: #0f172a; margin: 0; display: flex; align-items: center; gap: 10px; letter-spacing: normal;}
+        .fx-badge { background: #0f172a; color: #fff; font-size: 11px; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+        .fx-review { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .fx-review:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .fx-stars { color: #00c853; font-size: 16px; margin-bottom: 8px; letter-spacing: 2px; }
+        .fx-author-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+        .fx-author { font-size: 14px; font-weight: 700; color: #0f172a; text-transform: none; letter-spacing: normal;}
+        .fx-date { font-size: 12px; color: #64748b; font-weight: 500; }
+        .fx-text { font-size: 14px; color: #334155; line-height: 1.6; }
+        .fx-verified { display: inline-flex; align-items: center; gap: 4px; color: #00c853; font-size: 11px; font-weight: 700; margin-top: 10px; text-transform: uppercase; letter-spacing: 0.5px;}
+        
+        .fx-write-btn { background: transparent; border: 2px solid #0f172a; color: #0f172a; padding: 10px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif;}
+        .fx-write-btn:hover { background: #0f172a; color: #fff; }
+        .fx-form-box { background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid #e2e8f0; margin-top: 24px; display: none; }
+        .fx-input, .fx-textarea { width: 100%; padding: 12px 16px; margin-bottom: 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 14px; background: #f8f8f8; color: #0f172a; outline: none; transition: 0.2s;}
+        .fx-input:focus, .fx-textarea:focus { border-color: #0f172a; background: #fff; }
+        .fx-submit-btn { background: #0f172a; color: #fff; border: none; padding: 14px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.2s; width: 100%; font-family: 'Inter', sans-serif; font-size: 14px;}
+        .fx-submit-btn:hover { background: #1e293b; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .fx-branding { text-align: center; margin-top: 20px; font-size: 12px; color: #94a3b8; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px;}
+        .fx-link { color: #0f172a; font-weight: 800; cursor: pointer; text-decoration: underline; }
+    `;
+    document.head.appendChild(style);
 
-  // ── Submit review ──
-  function submitReview() {
-    const name = document.getElementById('r-name').value.trim();
-    const text = document.getElementById('r-text').value.trim();
+    // Render Widget Shell with Auth & Review Forms
+    container.innerHTML = `
+        <div class="fx-header">
+            <h3 class="fx-title">Faithox Verified Reviews <span class="fx-badge">Independent</span></h3>
+            <button class="fx-write-btn" id="fx-toggle-btn">Write a Review</button>
+        </div>
+        
+        <div id="fx-reviews-list">
+            <p style="color:#64748b; font-size: 14px; text-align: center; padding: 20px;">Securely fetching reviews from Faithox...</p>
+        </div>
 
-    if (!name) { alert('Please enter your name.'); return; }
-    if (!selectedRating) { alert('Please select a star rating.'); return; }
-    if (!text) { alert('Please write your review.'); return; }
+        <div class="fx-form-box" id="fx-auth-box">
+            <h4 style="margin-top:0; margin-bottom: 16px; color: #0f172a; font-size: 16px; font-weight: 800;" id="fx-auth-title">Log in to Faithox to Review</h4>
+            <input type="email" id="fx-auth-email" class="fx-input" placeholder="Email Address" required>
+            <input type="password" id="fx-auth-pass" class="fx-input" placeholder="Password" required>
+            <button class="fx-submit-btn" id="fx-auth-btn">Log In</button>
+            <p style="font-size: 13px; margin-top: 12px; text-align: center; color: #64748b;" id="fx-auth-switch-text">New to Faithox? <span class="fx-link" id="fx-switch-auth">Create an account</span></p>
+            <p id="fx-auth-msg" style="font-size: 13px; margin-top: 12px; color: #ef4444; display: none; text-align: center; font-weight: 700;"></p>
+        </div>
 
-    const starsStr = '★'.repeat(selectedRating) + '☆'.repeat(5 - selectedRating);
-    const today = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-
-    const card = document.createElement('div');
-    card.className = 'review-card';
-    card.innerHTML = `
-      <div class="review-header">
-        <span class="reviewer-name">${name}</span>
-        <span class="review-date">${today}</span>
-      </div>
-      <div class="review-stars">${starsStr}</div>
-      <p class="review-text">${text}</p>
-      <span class="verified">✔ Verified Purchase</span>
+        <div class="fx-form-box" id="fx-form">
+            <h4 style="margin-top:0; margin-bottom: 8px; color: #0f172a; font-size: 16px; font-weight: 800;">Post securely to Faithox</h4>
+            <p style="font-size: 12px; color: #00c853; margin-bottom: 16px; font-weight: 700;">✔ Logged in securely</p>
+            <input type="number" id="fx-rating" class="fx-input" placeholder="Star Rating (1-5)" min="1" max="5" required>
+            <textarea id="fx-comment" class="fx-textarea" rows="4" placeholder="Share your honest experience..." required></textarea>
+            <button class="fx-submit-btn" id="fx-submit-btn">Submit to Faithox Network</button>
+            <p id="fx-msg" style="font-size: 13px; margin-top: 12px; color: #00c853; display: none; text-align: center; font-weight: 700;"></p>
+        </div>
+        
+        <div class="fx-branding">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            Protected by Faithox Unbiased Engine
+        </div>
     `;
 
-    document.getElementById('review-list').prepend(card);
-    updateAvgRating();
+    let currentUser = null;
+    let isLoginMode = true;
 
-    // Reset form
-    document.getElementById('r-name').value = '';
-    document.getElementById('r-text').value = '';
-    setRating(0);
-    selectedRating = 0;
+    // Fetch Reviews
+    async function loadWidgetReviews() {
+        if(!companyId || companyId === 'YOUR_COMPANY_ID') return;
+        const { data: reviews, error } = await supabaseClient.from('reviews').select('*').eq('company_id', companyId).order('created_at', { ascending: false }).limit(4); 
+        const list = document.getElementById('fx-reviews-list');
+        
+        if (error || !reviews || reviews.length === 0) {
+            list.innerHTML = '<p style="color:#64748b; font-size: 14px; text-align: center; padding: 20px;">No reviews yet. Be the first to verify this product!</p>';
+            return;
+        }
 
-    const msg = document.getElementById('success-msg');
-    msg.style.display = 'block';
-    setTimeout(() => msg.style.display = 'none', 3000);
-  }
+        let html = '';
+        reviews.forEach(r => {
+            const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+            const date = new Date(r.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            html += `
+                <div class="fx-review">
+                    <div class="fx-stars">${stars}</div>
+                    <div class="fx-author-row">
+                        <span class="fx-author">${r.reviewer_name || 'Verified User'}</span>
+                        <span class="fx-date">${date}</span>
+                    </div>
+                    <div class="fx-text">${r.comment}</div>
+                    <div class="fx-verified">✔ Network Verified</div>
+                </div>
+            `;
+        });
+        list.innerHTML = html;
+    }
 
-  // ── Recalculate average ──
-  function updateAvgRating() {
-    const cards = document.querySelectorAll('.review-card');
-    let total = 0;
-    cards.forEach(card => {
-      const stars = card.querySelector('.review-stars').textContent;
-      total += (stars.match(/★/g) || []).length;
-    });
-    const avg = (total / cards.length).toFixed(1);
-    document.getElementById('avg-rating').textContent = avg;
-    document.getElementById('review-count').textContent = `Based on ${cards.length} review${cards.length !== 1 ? 's' : ''}`;
-    const fullStars = Math.round(avg);
-    document.getElementById('avg-stars').textContent = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
-  }
-</script>
-</body>
-</html>
+    // Toggle Form and Check Auth Status
+    document.getElementById('fx-toggle-btn').onclick = async () => {
+        const authBox = document.getElementById('fx-auth-box');
+        const reviewBox = document.getElementById('fx-form');
+        
+        // Check session every time they click to open
+        const { data } = await supabaseClient.auth.getSession();
+        currentUser = data?.session?.user || null;
+
+        // Hide both initially to calculate what to show
+        if (authBox.style.display === 'block' || reviewBox.style.display === 'block') {
+            authBox.style.display = 'none';
+            reviewBox.style.display = 'none';
+            return;
+        }
+
+        if (currentUser) {
+            reviewBox.style.display = 'block';
+        } else {
+            authBox.style.display = 'block';
+        }
+    };
+
+    // Toggle Login vs Signup UI
+    document.getElementById('fx-switch-auth').onclick = () => {
+        isLoginMode = !isLoginMode;
+        document.getElementById('fx-auth-title').innerText = isLoginMode ? "Log in to Faithox to Review" : "Create Faithox Account";
+        document.getElementById('fx-auth-btn').innerText = isLoginMode ? "Log In" : "Sign Up";
+        document.getElementById('fx-auth-switch-text').innerHTML = isLoginMode ? 'New to Faithox? <span class="fx-link" id="fx-switch-auth">Create an account</span>' : 'Already have an account? <span class="fx-link" id="fx-switch-auth">Log In</span>';
+        
+        // Re-attach the event listener because we overwrote the HTML
+        document.getElementById('fx-switch-auth').onclick = arguments.callee; 
+        document.getElementById('fx-auth-msg').style.display = 'none';
+    };
+
+    // Handle Authentication (Login/Signup)
+    document.getElementById('fx-auth-btn').onclick = async () => {
+        const email = document.getElementById('fx-auth-email').value;
+        const password = document.getElementById('fx-auth-pass').value;
+        const msgEl = document.getElementById('fx-auth-msg');
+
+        if(!email || !password) {
+            msgEl.innerText = "Please enter email and password.";
+            msgEl.style.display = 'block';
+            return;
+        }
+
+        const btn = document.getElementById('fx-auth-btn');
+        btn.innerText = 'Authenticating...';
+        btn.disabled = true;
+
+        let authError = null;
+
+        if (isLoginMode) {
+            const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+            authError = error;
+        } else {
+            const { error } = await supabaseClient.auth.signUp({ email, password });
+            authError = error;
+            if(!error) alert("Account created! You are now logged in.");
+        }
+
+        if (authError) {
+            msgEl.innerText = authError.message;
+            msgEl.style.display = 'block';
+            btn.innerText = isLoginMode ? 'Log In' : 'Sign Up';
+            btn.disabled = false;
+        } else {
+            // Success! Get session, hide auth box, show review box
+            const { data } = await supabaseClient.auth.getSession();
+            currentUser = data.session.user;
+            
+            document.getElementById('fx-auth-box').style.display = 'none';
+            document.getElementById('fx-form').style.display = 'block';
+            
+            btn.disabled = false;
+        }
+    };
+
+    // Submit Review (Now authenticated!)
+    document.getElementById('fx-submit-btn').onclick = async () => {
+        if (!currentUser) return; // Failsafe
+
+        const rating = parseInt(document.getElementById('fx-rating').value);
+        const comment = document.getElementById('fx-comment').value;
+        const msgEl = document.getElementById('fx-msg');
+        
+        // Extract the name from email to use as the reviewer name
+        const reviewerName = currentUser.email.split('@')[0];
+
+        if(!rating || !comment || rating < 1 || rating > 5) {
+            alert("Please fill out all fields correctly.");
+            return;
+        }
+
+        const btn = document.getElementById('fx-submit-btn');
+        btn.innerText = 'Encrypting & Posting...';
+        btn.disabled = true;
+
+        const { error } = await supabaseClient.from('reviews').insert({
+            user_id: currentUser.id, // SECURE: Tying the review to their Faithox account!
+            company_id: companyId,
+            rating: rating,
+            comment: comment,
+            reviewer_name: reviewerName,
+            status: 'approved' // Automatically approved because they logged in!
+        });
+
+        if (error) {
+            alert("Error: " + error.message);
+            btn.innerText = 'Submit to Faithox Network';
+            btn.disabled = false;
+        } else {
+            msgEl.innerText = "Verified Review submitted securely to Faithox!";
+            msgEl.style.display = 'block';
+            btn.style.display = 'none';
+            
+            document.getElementById('fx-comment').value = '';
+            document.getElementById('fx-rating').value = '';
+            
+            setTimeout(loadWidgetReviews, 1500);
+        }
+    };
+
+    loadWidgetReviews();
+  })();
+  </script>
+  </body>
+  </html>
