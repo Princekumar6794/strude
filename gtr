@@ -288,6 +288,16 @@
         .fx-submit-btn:hover { background: #1e293b; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         .fx-branding { text-align: center; margin-top: 20px; font-size: 12px; color: #94a3b8; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px;}
         .fx-link { color: #0f172a; font-weight: 800; cursor: pointer; text-decoration: underline; }
+        #fx-reviews-list { 
+            max-height: 320px; 
+            overflow-y: auto;  
+            padding-right: 12px; 
+            margin-bottom: 10px;
+        }
+        #fx-reviews-list::-webkit-scrollbar { width: 6px; }
+        #fx-reviews-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
+        #fx-reviews-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        #fx-reviews-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     `;
     document.head.appendChild(style);
 
@@ -339,48 +349,42 @@
             list.innerHTML = '<p style="color:#64748b; font-size: 14px; text-align: center; padding: 20px;">No reviews yet. Be the first to verify this product!</p>';
             return;
         }
-
-        let html = '';
+let html = '';
         reviews.forEach(r => {
             const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
             const date = new Date(r.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-            html += `
-                <div class="fx-review">
-                    <div class="fx-stars">${stars}</div>
-                    <div class="fx-author-row">
-                        <span class="fx-author">${r.reviewer_name || 'Verified User'}</span>
-                        <span class="fx-date">${date}</span>
-                    </div>
-                    <div class="fx-text">${r.comment}</div>
-                    <div class="fx-verified">✔ Network Verified</div>
-                </div>
-            `;
+            
+            // BULLETPROOF PHOTO EXTRACTOR
+            let photoUrls = [];
+            if (r.photos) {
+                if (Array.isArray(r.photos)) {
+                    photoUrls = r.photos;
+                } else if (typeof r.photos === 'string') {
+                    const extractedLinks = r.photos.match(/https?:\/\/[^\s"\]}]+/g);
+                    if (extractedLinks) photoUrls = extractedLinks;
+                }
+            }
+
+            // Generate Photo HTML
+            let photosHtml = '';
+            if (photoUrls.length > 0) {
+                photosHtml = '<div class="fx-photos" style="display: flex; gap: 8px; margin-top: 12px; overflow-x: auto;">' + 
+                    photoUrls.map(url => `<img src="${url}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 6px; border: 1px solid #e2e8f0; flex-shrink: 0;" alt="Review">`).join('') + 
+                '</div>';
+            }
+
+            html += `<div class="fx-review"><div class="fx-stars">${stars}</div><div class="fx-author-row"><span class="fx-author">${r.reviewer_name || 'Verified User'}</span><span class="fx-date">${date}</span></div><div class="fx-text">${r.comment}</div>${photosHtml}<div class="fx-verified">✔ Network Verified</div></div>`;
         });
         list.innerHTML = html;
+                    
     }
-
-    // Toggle Form and Check Auth Status
-    document.getElementById('fx-toggle-btn').onclick = async () => {
-        const authBox = document.getElementById('fx-auth-box');
-        const reviewBox = document.getElementById('fx-form');
-        
-        // Check session every time they click to open
-        const { data } = await supabaseClient.auth.getSession();
-        currentUser = data?.session?.user || null;
-
-        // Hide both initially to calculate what to show
-        if (authBox.style.display === 'block' || reviewBox.style.display === 'block') {
-            authBox.style.display = 'none';
-            reviewBox.style.display = 'none';
-            return;
-        }
-
-        if (currentUser) {
-            reviewBox.style.display = 'block';
-        } else {
-            authBox.style.display = 'block';
-        }
+// Redirect to Faithox Main Site
+    document.getElementById('fx-toggle-btn').onclick = () => {
+        // Change this URL to your actual Faithox website link
+        const faithoxUrl = `http://127.0.0.1:3000/Company.html?id=${companyId}`; 
+        window.open(faithoxUrl, '_blank');
     };
+    
 
     // Toggle Login vs Signup UI
     document.getElementById('fx-switch-auth').onclick = () => {
